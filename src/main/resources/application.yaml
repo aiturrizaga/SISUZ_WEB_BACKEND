@@ -1,1 +1,21 @@
+server:
+  port: 8585
+  servlet:
+    context-path: /sisuz/api/v1
 
+spring:
+  profiles:
+    active: dev
+
+---
+#Development profile
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: VENTA_CLINICABV
+    password: venta
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.Oracle10gDialect
