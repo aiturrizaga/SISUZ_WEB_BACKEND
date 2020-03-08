@@ -1,11 +1,13 @@
 package com.sisuz.cloud.admclinica.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -25,27 +27,45 @@ public class TipoCambio implements Serializable {
     private BigDecimal valTipoCambio;
 
     @Column(name = "FEC_INI_VIG")
-    private String fecIniVig;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fecIniVig;
 
     @Column(name = "FEC_FIN_VIG")
-    private String fecFinVig;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fecFinVig;
 
     @Size(max = 1)
     @Column(name = "EST_TIPO_CAMBIO")
     private String estTipoCambio;
 
     @Column(name = "FEC_CREA_TIPO_CAMBIO")
-    private String fecCreaTipoCambio;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fecCreaTipoCambio;
 
     @Column(name = "USU_CREA_TIPO_CAMBIO")
-    private String usuCreaTipoCambio;
+    private Integer usuCreaTipoCambio;
 
     @Column(name = "FEC_MOD_TIPO_CAMBIO")
-    private String fecModTipoCambio;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime fecModTipoCambio;
 
     @Column(name = "USU_MOD_TIPO_CAMBIO")
-    private String usuModTipoCambio;
+    private Integer usuModTipoCambio;
 
     public TipoCambio() {
     }
+
+    public TipoCambio(Long codTipoCambio, String codGrupoCia, BigDecimal valTipoCambio, LocalDateTime fecIniVig, LocalDateTime fecFinVig, String estTipoCambio, LocalDateTime fecCreaTipoCambio, Integer usuCreaTipoCambio, LocalDateTime fecModTipoCambio, Integer usuModTipoCambio) {
+        this.codTipoCambio = codTipoCambio;
+        this.codGrupoCia = codGrupoCia;
+        this.valTipoCambio = valTipoCambio;
+        this.fecIniVig = fecIniVig;
+        this.fecFinVig = fecFinVig;
+        this.estTipoCambio = estTipoCambio;
+        this.fecCreaTipoCambio = fecCreaTipoCambio;
+        this.usuCreaTipoCambio = usuCreaTipoCambio;
+        this.fecModTipoCambio = fecModTipoCambio;
+        this.usuModTipoCambio = usuModTipoCambio;
+    }
+
 }

@@ -17,7 +17,7 @@ public class TipoCambioController {
     private TipoCambioService tipoCambioService;
 
     @PutMapping
-    public TipoCambio updateTipoCambio(@RequestBody TipoCambio tipoCambio) throws ParseException {
+    public TipoCambio updateTipoCambio(@RequestBody TipoCambio tipoCambio) {
         return this.tipoCambioService.updateTipoCambio(tipoCambio);
     }
 

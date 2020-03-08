@@ -12,6 +12,6 @@ public interface TipoCambioRepository extends JpaRepository<TipoCambio, Long> {
 
     TipoCambio findByEstTipoCambioAndFecModTipoCambioIsNull(String estTipoCambio);
 
-    List<TipoCambio> findAllByEstTipoCambioAndFecFinVigIsNotNull(String estTipoCambio);
+    List<TipoCambio> findAllByEstTipoCambioAndFecFinVigIsNotNullOrderByFecIniVigDesc(String estTipoCambio);
 
 }
