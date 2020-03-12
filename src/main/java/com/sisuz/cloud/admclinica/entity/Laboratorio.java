@@ -3,10 +3,7 @@ package com.sisuz.cloud.admclinica.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -17,9 +14,10 @@ import java.time.LocalDateTime;
 public class Laboratorio implements Serializable {
 
     @Id
-    @Size(max = 5)
     @Column(name = "COD_LAB")
-    private String codLab;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LaboratorioSeq")
+    @SequenceGenerator(name = "LaboratorioSeq", sequenceName = "SEQ_LABORATORIO", allocationSize = 1)
+    private Long codLab;
 
     @Size(max = 150)
     @Column(name = "NOM_LAR_LAB")

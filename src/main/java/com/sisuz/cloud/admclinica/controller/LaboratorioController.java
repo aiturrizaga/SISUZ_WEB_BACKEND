@@ -16,9 +16,14 @@ public class LaboratorioController {
     @Autowired
     private LaboratorioService laboratorioService;
 
-    @PutMapping
+    @PostMapping
     public Laboratorio saveLab(@RequestBody Laboratorio laboratorio) {
-        return this.laboratorioService.saveOrUpdateLab(laboratorio);
+        return this.laboratorioService.saveLab(laboratorio);
+    }
+
+    @PutMapping
+    public Laboratorio updateLab(@RequestBody Laboratorio laboratorio) {
+        return this.laboratorioService.updateLab(laboratorio);
     }
 
     @GetMapping
