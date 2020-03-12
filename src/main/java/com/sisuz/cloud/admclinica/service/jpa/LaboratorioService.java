@@ -13,8 +13,21 @@ public class LaboratorioService {
     @Autowired
     private LaboratorioRepository laboratorioRepository;
 
-    public Laboratorio saveLab(Laboratorio laboratorio) {
-        return this.laboratorioRepository.save(laboratorio);
+    public Laboratorio saveOrUpdateLab(Laboratorio newLab) {
+        return this.laboratorioRepository.findById(newLab.getCodLab())
+                .map(lab -> {
+                    lab.setNomLarLab(newLab.getNomLarLab());
+                    lab.setDirecLab(newLab.getDirecLab());
+                    lab.setRucLab(newLab.getRucLab());
+                    lab.setNomCorLab(newLab.getNomCorLab());
+                    lab.setTelefLab(newLab.getTelefLab());
+                    lab.setTipoMarcaLab(newLab.getTipoMarcaLab());
+                    lab.setFecModLab(newLab.getFecModLab());
+                    lab.setUsuModLab(newLab.getUsuModLab());
+                    return this.laboratorioRepository.save(lab);
+                }).orElseGet(() -> {
+                    return this.laboratorioRepository.save(newLab);
+                });
     }
 
     public List<Laboratorio> findAllLabs(String estLab) {

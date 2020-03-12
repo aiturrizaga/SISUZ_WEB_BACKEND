@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LaboratorioRepository extends JpaRepository<Laboratorio, Long> {
+public interface LaboratorioRepository extends JpaRepository<Laboratorio, String> {
 
     List<Laboratorio> findAllByEstLabOrderByNomLarLab(String estLab);
 }
