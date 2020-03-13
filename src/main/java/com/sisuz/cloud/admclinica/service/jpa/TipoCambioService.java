@@ -6,7 +6,6 @@ import com.sisuz.cloud.admclinica.repository.jpa.TipoCambioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.util.List;
 
 @Service
