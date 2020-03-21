@@ -13,8 +13,8 @@ spring:
   profiles: dev
   datasource:
     url: jdbc:oracle:thin:@localhost:1521:xe
-    username: VENTA_CLINICABV
-    password: venta
+    username: SISUZ_WEB
+    password: S1@suz16
   jpa:
     hibernate:
       ddl-auto: update

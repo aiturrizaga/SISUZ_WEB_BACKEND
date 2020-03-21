@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(schema = "VENTA_CLINICABV", name = "PBL_IGV_WEB")
+@Table(schema = "SISUZ_WEB", name = "SZ_IGV")
 public class Igv implements Serializable {
 
     @Id
     @Column(name = "COD_IGV")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "IgvSeq")
-    @SequenceGenerator(name = "IgvSeq", sequenceName = "SEQ_IGV", allocationSize = 1)
+    @SequenceGenerator(name = "IgvSeq", sequenceName = "SEQ_SZ_IGV", allocationSize = 1)
     private Long codIgv;
 
     @Size(max = 30)

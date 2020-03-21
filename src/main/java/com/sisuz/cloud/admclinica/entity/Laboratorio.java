@@ -10,13 +10,13 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(schema = "VENTA_CLINICABV", name = "LGT_LABS")
+@Table(schema = "SISUZ_WEB", name = "SZ_MARCA_LAB")
 public class Laboratorio implements Serializable {
 
     @Id
     @Column(name = "COD_LAB")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LaboratorioSeq")
-    @SequenceGenerator(name = "LaboratorioSeq", sequenceName = "SEQ_LABORATORIO", allocationSize = 1)
+    @SequenceGenerator(name = "LaboratorioSeq", sequenceName = "SEQ_SZ_MARCA_LAB", allocationSize = 1)
     private Long codLab;
 
     @Size(max = 150)
