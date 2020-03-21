@@ -1,7 +1,7 @@
 package com.sisuz.cloud.admclinica.service.jpa;
 
 import com.sisuz.cloud.admclinica.entity.TipoCambio;
-import com.sisuz.cloud.admclinica.error.ExchangeRateNotFoundException;
+import com.sisuz.cloud.admclinica.error.BusinessException;
 import com.sisuz.cloud.admclinica.repository.jpa.TipoCambioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +36,7 @@ public class TipoCambioService {
                                     null,
                                     null)
                     );
-                }).orElseThrow(() -> new ExchangeRateNotFoundException(tipoCambio.getCodTipoCambio()));
+                }).orElseThrow(() -> new BusinessException("ExchangeRate id not found: " + tipoCambio.getCodTipoCambio()));
     }
 
     public List<TipoCambio> getExchangeHistory() {

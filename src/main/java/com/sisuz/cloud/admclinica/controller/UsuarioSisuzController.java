@@ -2,6 +2,7 @@ package com.sisuz.cloud.admclinica.controller;
 
 import com.sisuz.cloud.admclinica.entity.UsuarioSisuz;
 import com.sisuz.cloud.admclinica.service.jpa.UsuarioSisuzService;
+import com.sisuz.cloud.admclinica.util.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,14 @@ public class UsuarioSisuzController {
 
     @Autowired
     private UsuarioSisuzService usuarioSisuzService;
+
+    @Autowired
+    private MailService utilEmail;
+
+    @PostMapping("/email")
+    public void sendEmail() {
+        this.utilEmail.sendEmail("aiturrizaga.vargas@gmail.com", "ENVIAR MENSAJE DESDE JAVA", "Hola, saludos desde Spring Boot.");
+    }
 
     @PostMapping
     public UsuarioSisuz saveSisuzUser(@RequestBody UsuarioSisuz user) {

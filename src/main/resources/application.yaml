@@ -19,3 +19,17 @@ spring:
     hibernate:
       ddl-auto: update
       dialect: org.hibernate.dialect.Oracle10gDialect
+  mail:
+    host: smtp.mailtrap.io
+    port: 25
+    protocol: smtp
+    username: b4d8e81581b941
+    password: 09433e5f0ed773
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          quitwait: false

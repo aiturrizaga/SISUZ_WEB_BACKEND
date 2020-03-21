@@ -1,7 +1,7 @@
 package com.sisuz.cloud.admclinica.service.jpa;
 
 import com.sisuz.cloud.admclinica.entity.Local;
-import com.sisuz.cloud.admclinica.error.LocalNotFoundException;
+import com.sisuz.cloud.admclinica.error.BusinessException;
 import com.sisuz.cloud.admclinica.repository.jpa.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class LocalService {
                     local.setFecModLocal(newLocal.getFecModLocal());
                     local.setUsuModLocal(newLocal.getUsuModLocal());
                     return this.localRepository.save(local);
-                }).orElseThrow(() -> new LocalNotFoundException(newLocal.getCodLocal()));
+                }).orElseThrow(() -> new BusinessException("Local id not found: " + newLocal.getCodLocal()));
     }
 
 }
