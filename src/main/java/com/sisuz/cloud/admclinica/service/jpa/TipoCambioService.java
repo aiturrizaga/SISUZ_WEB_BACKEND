@@ -39,6 +39,10 @@ public class TipoCambioService {
                 }).orElseThrow(() -> new BusinessException("ExchangeRate id not found: " + tipoCambio.getCodTipoCambio()));
     }
 
+    public TipoCambio saveTipoCambio(TipoCambio tipoCambio) {
+        return this.tipoCambioRepository.save(tipoCambio);
+    }
+
     public List<TipoCambio> getExchangeHistory() {
         return this.tipoCambioRepository.findAllByEstTipoCambioAndFecFinVigIsNotNullOrderByFecIniVigDesc("I");
     }

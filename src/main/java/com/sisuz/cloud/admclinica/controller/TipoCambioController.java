@@ -21,6 +21,11 @@ public class TipoCambioController {
         return this.tipoCambioService.updateTipoCambio(tipoCambio);
     }
 
+    @PostMapping("/new")
+    public TipoCambio newTipoCambio(@RequestBody TipoCambio tipoCambio) {
+        return this.tipoCambioService.saveTipoCambio(tipoCambio);
+    }
+
     @GetMapping("/latest")
     public TipoCambio getExchangeLatest() {
         return this.tipoCambioService.getExchangeLatest();
