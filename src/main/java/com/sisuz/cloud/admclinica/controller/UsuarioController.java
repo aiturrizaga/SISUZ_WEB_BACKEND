@@ -1,7 +1,7 @@
 package com.sisuz.cloud.admclinica.controller;
 
-import com.sisuz.cloud.admclinica.entity.UsuarioSisuz;
-import com.sisuz.cloud.admclinica.service.jpa.UsuarioSisuzService;
+import com.sisuz.cloud.admclinica.entity.Usuario;
+import com.sisuz.cloud.admclinica.service.jpa.UsuarioService;
 import com.sisuz.cloud.admclinica.util.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,10 +12,10 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping("/users")
-public class UsuarioSisuzController {
+public class UsuarioController {
 
     @Autowired
-    private UsuarioSisuzService usuarioSisuzService;
+    private UsuarioService usuarioService;
 
     @Autowired
     private MailService utilEmail;
@@ -26,17 +26,17 @@ public class UsuarioSisuzController {
     }
 
     @PostMapping
-    public UsuarioSisuz saveSisuzUser(@RequestBody UsuarioSisuz user) {
-        return this.usuarioSisuzService.newSisuzUser(user);
+    public Usuario saveSisuzUser(@RequestBody Usuario user) {
+        return this.usuarioService.newSisuzUser(user);
     }
 
     @GetMapping(path = "/validations", produces = MediaType.APPLICATION_JSON_VALUE)
     public String verifyUsername(@RequestParam("username") String username) {
-        return this.usuarioSisuzService.verifyUsername(username);
+        return this.usuarioService.verifyUsername(username);
     }
 
     @GetMapping
-    public List<UsuarioSisuz> findAllUsers(@RequestHeader String estUsu) {
-        return this.usuarioSisuzService.findAllUsers(estUsu);
+    public List<Usuario> findAllUsers(@RequestHeader String estUsu) {
+        return this.usuarioService.findAllUsers(estUsu);
     }
 }

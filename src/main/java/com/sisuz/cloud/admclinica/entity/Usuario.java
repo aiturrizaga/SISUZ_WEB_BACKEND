@@ -10,12 +10,12 @@ import java.time.LocalDate;
 @Data
 @Entity
 @Table(schema = "SISUZ_WEB", name = "SZ_USUARIO")
-public class UsuarioSisuz implements Serializable {
+public class Usuario implements Serializable {
 
     @Id
     @Column(name = "COD_USU")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UsuarioSisuzSeq")
-    @SequenceGenerator(name = "UsuarioSisuzSeq", sequenceName = "SEQ_SZ_USUARIO", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "UsuarioSeq")
+    @SequenceGenerator(name = "UsuarioSeq", sequenceName = "SEQ_SZ_USUARIO", allocationSize = 1)
     private Long codUsu;
 
     @Column(name = "NOM_USU")
@@ -58,10 +58,10 @@ public class UsuarioSisuz implements Serializable {
     @Column(name = "EST_USU")
     private String estUsu;
 
-    public UsuarioSisuz() {
+    public Usuario() {
     }
 
-    public UsuarioSisuz(Long codUsu, String nomUsu, String passUsu, String emailUsu, String tipoSist, String confirmUsu, Integer tipDocPer, String nroDocPer, String nomPer, String apePer, String telefPer, String genPer, LocalDate fecNacPer, String estUsu) {
+    public Usuario(Long codUsu, String nomUsu, String passUsu, String emailUsu, String tipoSist, String confirmUsu, Integer tipDocPer, String nroDocPer, String nomPer, String apePer, String telefPer, String genPer, LocalDate fecNacPer, String estUsu) {
         this.codUsu = codUsu;
         this.nomUsu = nomUsu;
         this.passUsu = passUsu;

@@ -7,16 +7,17 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
 @Table(schema = "SISUZ_WEB", name = "SZ_ROL")
-public class RolSisuz implements Serializable {
+public class Rol implements Serializable {
 
     @Id
     @Column(name = "COD_ROL")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RolSisuzSeq")
-    @SequenceGenerator(name = "RolSisuzSeq", sequenceName = "SEQ_SZ_ROL", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RolSeq")
+    @SequenceGenerator(name = "RolSeq", sequenceName = "SEQ_SZ_ROL", allocationSize = 1)
     private Long codRol;
 
     @Size(max = 30)
@@ -49,10 +50,10 @@ public class RolSisuz implements Serializable {
     @Column(name = "TIP_ROL")
     private String tipRol;
 
-    public RolSisuz() {
+    public Rol() {
     }
 
-    public RolSisuz(Long codRol, String descRol, String verRol, String estRol, LocalDateTime fecCreaRol, Integer usuCreRol, LocalDateTime fecModRol, Integer usuModRol, String tipRol) {
+    public Rol(Long codRol, String descRol, String verRol, String estRol, LocalDateTime fecCreaRol, Integer usuCreRol, LocalDateTime fecModRol, Integer usuModRol, String tipRol) {
         this.codRol = codRol;
         this.descRol = descRol;
         this.verRol = verRol;
